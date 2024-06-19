@@ -1,0 +1,20 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(
+    45deg,
+    #ffd700,
+    #32cd32
+  ); /* Градиент от золотистого к зеленому */
+}
+
+.register-button {
+  font-family: "Montserrat", Arial, sans-serif;
+  display: block;
+}
