@@ -3,7 +3,7 @@
   margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
-  border: 1px solid #ccc;
+
   border-radius: 5px;
   display: grid;
   place-items: center;
@@ -13,7 +13,18 @@
     #32cd32
   ); /* Градиент от золотистого к зеленому */
 }
-
+.accept-input {
+  border: 2px solid #32cd32;
+}
+.container-not-error {
+  border: 1px solid #ccc;
+}
+.container-error {
+  border: 3px solid rgb(194, 2, 2);
+}
+.error-input {
+  border: 2px solid rgb(194, 2, 2);
+}
 .register-button {
   font-family: "Montserrat", Arial, sans-serif;
   display: block;
