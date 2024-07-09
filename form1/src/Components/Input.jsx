@@ -1,25 +1,23 @@
 import styles from "../app.module.css";
-export const Inputs = (props) => {
-  const isEmailError = props.emailError
-    ? styles["error-input"]
-    : styles["accept-input"];
-  const isPasswordError = props.passwordError
-    ? styles["error-input"]
-    : styles["accept-input"];
-  const isRepeatPasswordError = props.repeatPasswordError
-    ? styles["error-input"]
-    : styles["accept-input"];
+export const Input = (props) => {
+  const isError = props.error ? styles["error-input"] : styles["accept-input"];
+  //   const isPasswordError = props.passwordError
+  //     ? styles["error-input"]
+  //     : styles["accept-input"];
+  //   const isRepeatPasswordError = props.repeatPasswordError
+  //     ? styles["error-input"]
+  //     : styles["accept-input"];
   return (
     <>
       <input
-        className={styles["email-input"] + " " + isEmailError}
-        name="email"
-        type="email"
-        placeholder="Введите почту"
-        {...props.register("email")}
+        className={" " + isError}
+        type={props.type}
+        placeholder={props.placeholder}
+        {...props.register(`${props.name}`)}
+        name={props.name}
       />
-      {props.emailError && <p className={styles.error}>{props.emailError}</p>}
-      <input
+      {props.error && <p className={styles.error}>{props.error}</p>}
+      {/* <input
         className={styles["password-input"] + " " + isPasswordError}
         name="password"
         type="password"
@@ -38,7 +36,7 @@ export const Inputs = (props) => {
       />
       {props.repeatPasswordError && (
         <p className={styles.error}>{props.repeatPasswordError}</p>
-      )}
+      )} */}
     </>
   );
 };

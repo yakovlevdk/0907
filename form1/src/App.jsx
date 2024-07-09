@@ -6,7 +6,7 @@ import styles from "./app.module.css";
 import { Header } from "./Components/Header/Header";
 import { schema } from "./Components/schema";
 import { Button } from "./Components/submitButton";
-import { Inputs } from "./Components/Inputs";
+import { Input } from "./Components/Input";
 const sendData = (object) => {
   console.log(object);
 };
@@ -18,11 +18,6 @@ export const Form = () => {
     formState: { errors },
     getValues,
   } = useForm({
-    defaultValues: {
-      email: "",
-      password: "",
-      repeatPassword: "",
-    },
     resolver: yupResolver(schema()),
   });
   const { email, repeatPassword, password } = getValues();
@@ -51,14 +46,27 @@ export const Form = () => {
         </div>
         <div className={styles["form-field"]}>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <Inputs
-              submitButton={submitButton}
-              emailError={emailError}
-              passwordError={passwordError}
-              repeatPassword={repeatPassword}
+            <Input
               register={register}
-              repeatPasswordError={repeatPasswordError}
-            />
+              name="email"
+              type="text"
+              placeholder="Введите почту"
+              error={emailError}
+            ></Input>
+            <Input
+              register={register}
+              name="password"
+              type="password"
+              placeholder="Введите пароль"
+              error={passwordError}
+            ></Input>
+            <Input
+              register={register}
+              name="repeatPassword"
+              type="password"
+              placeholder="Повторите пароль"
+              error={repeatPasswordError}
+            ></Input>
             <Button
               ref={submitButton}
               passwordError={passwordError}
